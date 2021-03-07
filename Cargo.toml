@@ -1,0 +1,20 @@
+[package]
+name = "dbgtools-win"
+version = "0.1.0"
+authors = ["Jan Danielsson <jan.danielsson@qrnch.com>"]
+edition = "2018"
+license = "0BSD"
+categories = [ "development-tools" ]
+keywords = [ "debugging", "windows" ]
+repository = "https://github.com/openqrnch/dbgtools-win"
+description = "Expensive and intrusive debugging tools (for Windows)"
+exclude = [ "bld.ps1", "rustfmt.toml", "examples" ]
+
+[dependencies]
+windows = { version = "0.3" }
+backtrace = { version = "0.3" }
+widestring = { version = "0.4" }
+
+[build-dependencies]
+windows = { version = "0.3" }
+
