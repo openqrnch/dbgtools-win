@@ -1,6 +1,6 @@
 [package]
 name = "dbgtools-win"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Jan Danielsson <jan.danielsson@qrnch.com>"]
 edition = "2018"
 license = "0BSD"
@@ -11,10 +11,11 @@ description = "Expensive and intrusive debugging tools (for Windows)"
 exclude = [ "bld.ps1", "rustfmt.toml", "examples" ]
 
 [dependencies]
-windows = { version = "0.3" }
 backtrace = { version = "0.3" }
+chrono = { version = "0.4" }
 widestring = { version = "0.4" }
+windows = { version = "0.9" }
 
 [build-dependencies]
-windows = { version = "0.3" }
+windows = { version = "0.9" }
 

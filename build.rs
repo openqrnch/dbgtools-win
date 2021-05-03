@@ -1,6 +1,10 @@
 fn main() {
   windows::build!(
-    windows::win32::debug::{IsDebuggerPresent, DebugBreak, OutputDebugStringW}
+    Windows::Win32::Debug::{IsDebuggerPresent, DebugBreak, OutputDebugStringW,
+      MiniDumpWriteDump, Beep},
+    Windows::Win32::FileSystem::CreateFileW,
+    Windows::Win32::SystemServices::{GetCurrentProcess},
+    Windows::Win32::WindowsProgramming::CloseHandle
   );
 }
 

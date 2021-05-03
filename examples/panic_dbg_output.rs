@@ -6,20 +6,17 @@
 // Expected results:
 //   The backtrace will be sent to the debuggers debug output terminal.
 
-use dbgtools_win::{
-  debugger_output, set_debug_output_panic_handler, wait_for_debugger_break,
-  OnPanic
-};
+use dbgtools_win::debugger::{self, OnPanic};
 
 fn main() {
   println!("Set up debug output panic handler ..");
   // Do not trigger a breakpoint in the panic handler
-  set_debug_output_panic_handler(OnPanic::NoBreak);
+  debugger::set_panic_handler(OnPanic::NoBreak);
 
   println!("Waiting for a debugger to attach ..");
-  wait_for_debugger_break();
+  debugger::wait_for_then_break();
 
-  debugger_output("Hello, debugger!\n");
+  debugger::output("Hello, debugger!\n");
 
   println!("Presumably a debugger attached -- trigger a panic");
   a_function("panic message");
@@ -34,7 +31,7 @@ fn another_function(msg: &'static str) {
 }
 
 fn final_function(msg: &'static str) {
-  panic!(msg);
+  panic!("{}", msg);
 }
 
 // vim: set ft=rust et sw=2 ts=2 sts=2 cinoptions=2 tw=79 :
