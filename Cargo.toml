@@ -1,6 +1,6 @@
 [package]
 name = "dbgtools-win"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Jan Danielsson <jan.danielsson@qrnch.com>"]
 edition = "2018"
 license = "0BSD"
@@ -18,4 +18,8 @@ windows = { version = "0.9" }
 
 [build-dependencies]
 windows = { version = "0.9" }
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = ["x86_64-pc-windows-msvc", "i686-pc-windows-msvc"]
 
